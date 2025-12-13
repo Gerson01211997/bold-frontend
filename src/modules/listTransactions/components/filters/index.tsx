@@ -1,13 +1,14 @@
-
 import DateTabs from "./components/tabsFilters";
-import FilterButton from "./components/filterButton"
+import FilterButton from "./components/filterButton";
+import { className } from "./style";
+
 function Filters() {
   return (
-    <div className="flex flex-col gap-4">
+    <div className={className.container}>
       <DateTabs />
       <FilterButton />
     </div>
   );
 }
 
-export default Filters
+export default Filters;

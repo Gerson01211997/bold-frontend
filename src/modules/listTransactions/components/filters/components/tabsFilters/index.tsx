@@ -1,5 +1,5 @@
 import { useState } from "react";
-import FilterButton from "@/modules/listTransactions/components/filters/components/filterButton";
+import { className } from "./style";
 
 const tabs = [
   { id: "hoy", label: "Hoy" },
@@ -11,8 +11,8 @@ export default function DateTabs() {
   const [activeTab, setActiveTab] = useState(tabs[0].id);
 
   return (
-    <div className="w-full">
-      <div className="flex gap-8 rounded-xl bg-white px-4 py-2 shadow-sm">
+    <div className={className.container}>
+      <div className={className.tabsWrapper}>
         {tabs.map(({ id, label }) => {
           const isActive = activeTab === id;
 
@@ -21,20 +21,7 @@ export default function DateTabs() {
               key={id}
               type="button"
               onClick={() => setActiveTab(id)}
-              className={`
-                flex-1
-                rounded-2xl
-                px-3
-                py-1
-                text-center
-                text-sm
-                font-medium
-                text-bold-blue
-                transition-colors
-                duration-200
-                focus:outline-none
-                ${isActive ? "bg-gray-200" : "hover:bg-gray-100"}
-              `}
+              className={`${className.tab} ${isActive ? className.tabActive : className.tabInactive}`}
             >
               {label}
             </button>
