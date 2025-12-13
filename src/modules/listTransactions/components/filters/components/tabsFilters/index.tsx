@@ -29,7 +29,7 @@ export default function DateTabs() {
                 text-center
                 text-sm
                 font-medium
-                text-gray-500
+                text-bold-blue
                 transition-colors
                 duration-200
                 focus:outline-none
@@ -41,7 +41,6 @@ export default function DateTabs() {
           );
         })}
       </div>
-      <FilterButton />
     </div>
   );
 }
