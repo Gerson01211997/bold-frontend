@@ -1,5 +1,5 @@
 import { useState } from "react";
-import FilterButton from "@/modules/listTransactions/components/filters/components/filterButton"
+import FilterButton from "@/modules/listTransactions/components/filters/components/filterButton";
 
 const tabs = [
   { id: "hoy", label: "Hoy" },
@@ -41,7 +41,7 @@ export default function DateTabs() {
           );
         })}
       </div>
-      <FilterButton/>
+      <FilterButton />
     </div>
   );
 }

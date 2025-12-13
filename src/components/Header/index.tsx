@@ -39,23 +39,27 @@ function Header() {
           aria-label={t("navbar.openMenu")}
         >
           <span
-            className={`absolute left-0 top-2 h-0.5 w-full bg-white transition-transform duration-300 ${open ? "translate-y-2 rotate-45" : ""
-              }`}
+            className={`absolute left-0 top-2 h-0.5 w-full bg-white transition-transform duration-300 ${
+              open ? "translate-y-2 rotate-45" : ""
+            }`}
           />
           <span
-            className={`absolute left-0 top-4 h-0.5 w-full bg-white transition-opacity duration-300 ${open ? "opacity-0" : "opacity-100"
-              }`}
+            className={`absolute left-0 top-4 h-0.5 w-full bg-white transition-opacity duration-300 ${
+              open ? "opacity-0" : "opacity-100"
+            }`}
           />
           <span
-            className={`absolute left-0 top-6 h-0.5 w-full bg-white transition-transform duration-300 ${open ? "-translate-y-2 -rotate-45" : ""
-              }`}
+            className={`absolute left-0 top-6 h-0.5 w-full bg-white transition-transform duration-300 ${
+              open ? "-translate-y-2 -rotate-45" : ""
+            }`}
           />
         </button>
       </div>
 
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${open ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
-          }`}
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+          open ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+        }`}
       >
         <div className="px-4 pb-4">
           <a href="/test-page" className="block py-2 text-white">

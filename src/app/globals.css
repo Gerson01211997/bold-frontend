@@ -4,6 +4,10 @@
   --background: #f6f4f9;
   --foreground: #f6f4f9;
   --bold-gradient: linear-gradient(270deg, #ff2947 13.86%, #121e6c 83.33%);
+  --bold-blue: #121e6c;
+  --bold-gray: #606060;
+  --bold-light-gray: #f3f3f3;
+  --bold-red: #ee424e;
 }
 
 @theme inline {
@@ -15,6 +19,10 @@
     #ff2947 13.86%,
     #121e6c 83.33%
   );
+  --color-bold-blue: var(--bold-blue);
+  --color-bold-light-gray: var(--bold-light-gray);
+  --color-bold-gray: var(--bold-gray);
+  --color-bold-red: var(--bold-red);
 }
 
 body {

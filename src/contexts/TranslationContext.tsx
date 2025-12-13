@@ -36,10 +36,7 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const t = (
-    key: string,
-    params?: Record<string, string | number>,
-  ): string => {
+  const t = (key: string, params?: Record<string, string | number>): string => {
     const { getTranslation } = require("@/lib/translations");
     return getTranslation(key, locale, params);
   };

@@ -12,8 +12,8 @@
     "month": "Junio"
   },
   "listTransactions": {
-    "listRow":{
-      "header":{
+    "listRow": {
+      "header": {
         "title": "Tus ventas de {date}"
       }
     }

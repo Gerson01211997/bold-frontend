@@ -1,6 +1,4 @@
-import ShowTotal from "../totalSells"
+import ShowTotal from "../totalSells";
 export function Filters() {
-    return (
-        <ShowTotal />
-    );
+  return <ShowTotal />;
 }
