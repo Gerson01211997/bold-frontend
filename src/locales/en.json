@@ -1,0 +1,18 @@
+{
+  "navbar": {
+    "myBusiness": "My Business",
+    "help": "Help",
+    "openMenu": "Open menu"
+  },
+  "common": {
+    "welcome": "Welcome",
+    "loading": "Loading..."
+  },
+  "listTransactions": {
+    "listRow": {
+      "header": {
+        "title": "Your sales from {date}"
+      }
+    }
+  }
+}

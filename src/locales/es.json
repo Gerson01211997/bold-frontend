@@ -1,0 +1,21 @@
+{
+  "navbar": {
+    "myBusiness": "Mi negocio",
+    "help": "Ayuda",
+    "openMenu": "Abrir menú"
+  },
+  "common": {
+    "welcome": "Bienvenido",
+    "loading": "Cargando...",
+    "today": "hoy",
+    "thisWeek": "esta semana",
+    "month": "Junio"
+  },
+  "listTransactions": {
+    "listRow":{
+      "header":{
+        "title": "Tus ventas de {date}"
+      }
+    }
+  }
+}
