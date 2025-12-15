@@ -1,0 +1,22 @@
+export const className = {
+  th: "px-4 py-2 text-left text-xs font-semibold uppercase tracking-wider text-gray-500",
+  tbody: "divide-y divide-gray-100",
+  trWithTop: "align-top",
+  tr: "hover:bg-gray-50 transition-colors duration-100 cursor-pointer h-20",
+  tdTransaction:
+    "px-4 py-4 whitespace-nowrap text-sm font-medium text-bold-blue",
+  tdTransactionContent: "flex items-center space-x-2",
+  tdDate: "px-4 py-4 whitespace-nowrap text-sm text-bold-gray",
+  tdDateContent: "flex flex-col",
+  tdDateMain: "font-medium",
+  tdDateSub: "text-xs text-gray-500",
+  tdPaymentMethod: "px-4 py-4 whitespace-nowrap text-sm text-bold-gray",
+  tdPaymentMethodContent: "flex items-center space-x-2",
+  tdId: "px-4 py-4 whitespace-nowrap text-sm text-bold-gray",
+  tdAmount: "px-4 py-4 whitespace-nowrap text-sm text-left",
+  tdAmountContent: "flex flex-col",
+  amountSuccess: "font-bold text-base text-bold-blue",
+  amountFailed: "font-bold text-base text-bold-gray",
+  deduction: "text-xs text-bold-red flex flex-col",
+  deductionAmount: "ml-1 font-medium",
+} as const;

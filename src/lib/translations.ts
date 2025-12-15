@@ -38,7 +38,6 @@ export function getTranslation(
     getValueByPath(translations[defaultLocale], path) ??
     key;
 
-  // Reemplazar parámetros si se proporcionan
   if (params && typeof translation === "string") {
     Object.entries(params).forEach(([paramKey, paramValue]) => {
       translation = translation.replace(

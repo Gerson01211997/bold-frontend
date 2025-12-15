@@ -1,16 +1,23 @@
 "use client";
-import ShowTotal from "./components/totalSells";
-import ListRow from "./components/ListRow";
+import ShowTotal from "./components/summary";
 import Filters from "./components/filters";
+import { className } from "./styles";
+import ListRowHeader from "./components/salesHeader";
+import TransactionTable from "./components/table";
+import SearchInput from "./components/search";
 
 function ListTransactions() {
   return (
-    <section className="w-full p-10 flex items-center flex-col gap-4">
-      <div className="w-full grid grid-cols-1 md:grid-cols-[0.5fr_1fr] gap-4">
+    <section className={className.container}>
+      <div className={className.containerSummary}>
         <ShowTotal />
         <Filters />
       </div>
-      <ListRow />
+      <div className={className.containerTable}>
+        <ListRowHeader />
+        <SearchInput />
+        <TransactionTable />
+      </div>
     </section>
   );
 }

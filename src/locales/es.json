@@ -14,7 +14,14 @@
   "listTransactions": {
     "listRow": {
       "header": {
-        "title": "Tus ventas de {date}"
+        "title": "Tus ventas de {date}",
+        "cols": {
+          "transaction": "TRANSACCIÓN",
+          "date": "FECHA Y HORA",
+          "payMethod": "MÉTODO DE PAGO",
+          "idTransaction": "ID TRANSACCIÓN BOLD",
+          "amount": "MONTO"
+        }
       }
     }
   }
