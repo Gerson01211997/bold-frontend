@@ -1,29 +1,33 @@
-import { useState } from "react";
-import { className } from "./style";
-import { TABS_NAME } from "./constanst";
+import { className } from "@/modules/listTransactions/components/filters/components/tabsFilters/style";
+import { TABS_NAME } from "@/modules/listTransactions/components/filters/components/tabsFilters/constanst";
 import { useTranslations } from "@/hooks/useTranslations";
+import { useTransactionsContext } from "@/modules/listTransactions/context/TransactionsContext";
+import { memo } from "react";
 
-export default function DateTabs() {
-  const [activeTab, setActiveTab] = useState(TABS_NAME[0].value);
+function DateTabs() {
+  const { dateRange, setDateRange } = useTransactionsContext();
   const t = useTranslations();
+
+  const tabs = TABS_NAME.map(({ value, name }) => {
+    const isActive = dateRange === value;
+
+    return (
+      <button
+        key={value}
+        type="button"
+        onClick={() => setDateRange(isActive ? null : value)}
+        className={`${className.tab} ${isActive ? className.tabActive : className.tabInactive}`}
+      >
+        {t(name)}
+      </button>
+    );
+  });
+
   return (
     <div className={className.container}>
-      <div className={className.tabsWrapper}>
-        {TABS_NAME.map(({ value, name }) => {
-          const isActive = activeTab === value;
-
-          return (
-            <button
-              key={value}
-              type="button"
-              onClick={() => setActiveTab(value)}
-              className={`${className.tab} ${isActive ? className.tabActive : className.tabInactive}`}
-            >
-              {t(name)}
-            </button>
-          );
-        })}
-      </div>
+      <div className={className.tabsWrapper}>{tabs}</div>
     </div>
   );
 }
+
+export default memo(DateTabs);

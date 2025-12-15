@@ -13,3 +13,16 @@ export function formatDateTime(dateTime: string): string {
 
   return `${day}/${month}/${year}-${hours}:${minutes}:${seconds}`;
 }
+
+export function formatTransactionDate(dateRange: string | null): string {
+  const now = new Date();
+  const monthName = new Intl.DateTimeFormat("es-CO", { month: "long" }).format(
+    now,
+  );
+  const year = now.getFullYear();
+
+  const isDay = dateRange === "today" || dateRange === null;
+  return isDay
+    ? `${monthName} ${now.getDate()}, ${year}`
+    : `${monthName}, ${year}`;
+}

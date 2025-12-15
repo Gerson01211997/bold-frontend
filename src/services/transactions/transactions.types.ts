@@ -3,7 +3,7 @@ import type {
   PaymentMethod,
   SalesType,
   CardFranchise,
-} from "./transactions.enum";
+} from "@/services/transactions/transactions.enum";
 
 export interface Transaction {
   id: string;

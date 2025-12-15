@@ -1,4 +1,4 @@
-import type { ApiClientOptions } from "./types";
+import type { ApiClientOptions } from "@/services/apiClient/types";
 
 export async function apiClient<T>(
   url: string,

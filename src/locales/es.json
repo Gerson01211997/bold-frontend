@@ -9,12 +9,16 @@
     "loading": "Cargando...",
     "today": "Hoy",
     "week": "Ésta semana",
-    "month": "Éste mes"
+    "month": "Diciembre "
   },
   "listTransactions": {
     "listRow": {
+      "emptyState": {
+        "title": "No se encontraron transacciones"
+      },
       "header": {
         "title": "Tus ventas de {date}",
+        "search": "Buscar",
         "cols": {
           "transaction": "Transacción",
           "date": "Fecha y hora",
@@ -35,7 +39,9 @@
           }
         }
       },
-      "filters":{
+      "filters": {
+        "title": "Filtrar",
+        "button": "Filtrar",
         "viewAll": "Ver todos",
         "terminal": "Cobro con datáfono",
         "link": "Cobro con link de pago",

@@ -4,7 +4,7 @@ import ChainsIcon from "@/components/icons/ChainsIcon";
 import CheckIcon from "@/components/icons/CheckIcon";
 import CloseIcon from "@/components/icons/CloseIcon";
 import { memo } from "react";
-import { className } from "./style";
+import { className } from "@/modules/listTransactions/components/sidePanel/style";
 import type { Transaction } from "@/services/transactions/transactions.types";
 import { formatDateTime } from "@/lib/formatDateTime";
 import {
@@ -15,10 +15,10 @@ import {
   getIconByPayMethod,
   getIconBySalesType,
   transactionStatusLang,
-} from "../table/rows/utils";
+} from "@/modules/listTransactions/components/table/rows/utils";
 import { useTranslations } from "@/hooks/useTranslations";
 import { formatCOP } from "@/lib/formatCurrency";
-import { generateTypePay } from "./utils";
+import { generateTypePay } from "@/modules/listTransactions/components/sidePanel/utils";
 
 type SidePanelProps = {
   isOpen: boolean;

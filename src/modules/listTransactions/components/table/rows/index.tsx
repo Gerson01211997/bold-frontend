@@ -1,14 +1,14 @@
 "use client";
 
-import { className } from "./style";
+import { className } from "@/modules/listTransactions/components/table/rows/style";
 import { formatDateTime } from "@/lib/formatDateTime";
 import { formatCOP } from "@/lib/formatCurrency";
-import type { RowProps } from "./types";
+import type { RowProps } from "@/modules/listTransactions/components/table/rows/types";
 import {
   getIconByPayMethod,
   getIconBySalesType,
   transactionStatusLang,
-} from "./utils";
+} from "@/modules/listTransactions/components/table/rows/utils";
 import { useTranslations } from "@/hooks/useTranslations";
 import { PaymentMethod } from "@/services/transactions/transactions.enum";
 

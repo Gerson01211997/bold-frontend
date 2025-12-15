@@ -17,6 +17,6 @@ export const className = {
   tdAmountContent: "flex flex-col",
   amountSuccess: "font-bold text-base text-bold-blue",
   amountFailed: "font-bold text-base text-bold-gray",
-  deduction: "text-xs text-bold-red flex flex-col",
-  deductionAmount: "ml-1 font-medium",
+  deduction: "text-xs text-bold-gray flex flex-col",
+  deductionAmount: "ml-1 font-medium text-bold-red",
 } as const;

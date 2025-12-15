@@ -1,6 +1,6 @@
 "use client";
 import { useTranslations } from "@/hooks/useTranslations";
-import { className } from "./style";
+import { className } from "@/modules/listTransactions/components/salesHeader/style";
 
 function ListRowHeader() {
   const t = useTranslations();

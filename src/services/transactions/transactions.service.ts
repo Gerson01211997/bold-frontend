@@ -1,7 +1,7 @@
 import { enviroments } from "@/lib/enviroments";
 import { apiClient } from "@/services/apiClient";
 import type { TransactionsResponse } from "@/services/transactions/transactions.types";
-import { ROUTES } from "./transactions.routes";
+import { ROUTES } from "@/services/transactions/transactions.routes";
 
 const ENDPOINT = `${enviroments.apiBaseUrl}${ROUTES.list}`;
 

@@ -5,7 +5,7 @@ import BoldIcon from "@/components/icons/BoldIcon";
 import HelpIcon from "@/components/icons/HelpIcon";
 import { useTranslations } from "@/hooks/useTranslations";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
-import { className } from "./styles";
+import { className } from "@/components/Header/styles";
 
 interface NavLink {
   href: string;

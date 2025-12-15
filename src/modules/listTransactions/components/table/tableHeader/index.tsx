@@ -1,6 +1,6 @@
 import { memo } from "react";
-import { className } from "./style";
-import { TABLE_HEADER_TITLES } from "./constanst";
+import { className } from "@/modules/listTransactions/components/table/tableHeader/style";
+import { TABLE_HEADER_TITLES } from "@/modules/listTransactions/components/table/tableHeader/constanst";
 import { useTranslations } from "@/hooks/useTranslations";
 
 function TableHeader() {

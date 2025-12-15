@@ -1,33 +1,47 @@
 {
   "navbar": {
-    "myBusiness": "My business",
+    "myBusiness": "My Business",
     "help": "Help",
-    "openMenu": "Open menu"
+    "openMenu": "Open Menu"
   },
   "common": {
     "welcome": "Welcome",
     "loading": "Loading...",
-    "today": "today",
-    "thisWeek": "this week",
-    "month": "June"
+    "today": "Today",
+    "week": "This Week",
+    "month": "December"
   },
   "listTransactions": {
     "listRow": {
       "header": {
-        "title": "Your sales on {date}",
+        "title": "Your sales for {date}",
         "cols": {
-          "transaction": "TRANSACTION",
-          "date": "DATE AND TIME",
-          "payMethod": "PAYMENT METHOD",
-          "idTransaction": "BOLD TRANSACTION ID",
-          "amount": "AMOUNT"
+          "transaction": "Transaction",
+          "date": "Date and Time",
+          "payMethod": "Payment Method",
+          "idTransaction": "Transaction ID bold",
+          "amount": "Amount"
         },
         "rows": {
           "transactionStatus": {
-            "SUCCESSFUL": "Successful charge",
-            "REJECTED": "Charge not completed"
+            "SUCCESSFUL": "Successful Charge",
+            "REJECTED": "Failed Charge"
+          },
+          "deduction": "Deduction bold",
+          "typeMethod": "Payment Type",
+          "typePay": {
+            "PAYMENT_LINK": "Payment Link",
+            "TERMINAL": "Card Terminal"
           }
         }
+      },
+      "filters": {
+        "title": "Filter",
+        "button": "Filter",
+        "viewAll": "View All",
+        "terminal": "Charge with Card Terminal",
+        "link": "Charge with Payment Link",
+        "apply": "Apply"
       }
     }
   }

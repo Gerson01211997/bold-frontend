@@ -1,23 +1,26 @@
 "use client";
 
 import SearchIcon from "@/components/icons/SearchIcon";
-import { type ChangeEvent, useState } from "react";
-import { className } from "./style";
+import type { ChangeEvent } from "react";
+import { className } from "@/modules/listTransactions/components/search/style";
+import { useTransactionsContext } from "@/modules/listTransactions/context/TransactionsContext";
+import { useTranslations } from "@/hooks/useTranslations";
 
 export default function SearchInput() {
-  const [searchTerm, setSearchTerm] = useState("");
+  const t = useTranslations();
+  const { search, setSearch } = useTransactionsContext();
 
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(event.target.value);
+    setSearch(event.target.value);
   };
 
   return (
     <div className={className.container}>
-      <SearchIcon className="h-5 w-5 text-gray-400" />
+      <SearchIcon className="h-5 w-5 text-bold-gray" />
       <input
         type="text"
-        placeholder="Buscar"
-        value={searchTerm}
+        placeholder={t("listTransactions.listRow.header.search")}
+        value={search}
         onChange={handleSearchChange}
         className={className.input}
         aria-label="Buscar transacciones"
