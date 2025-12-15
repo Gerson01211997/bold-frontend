@@ -17,7 +17,6 @@ export function transactionStatusLang({
 }: {
   transaction: TransactionStatus;
 }) {
-  console.log({ transaction });
   return `listTransactions.listRow.header.rows.transactionStatus.${transaction}`;
 }
 

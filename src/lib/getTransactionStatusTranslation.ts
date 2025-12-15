@@ -1,5 +1,5 @@
-import type { Locale } from "./translations";
-import { getTranslation } from "./translations";
+import type { Locale } from "@/lib/translations";
+import { getTranslation } from "@/lib/translations";
 import type { TransactionStatus } from "@/services/transactions/transactions.enum";
 
 export function getTransactionStatusTranslation(

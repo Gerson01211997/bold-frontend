@@ -6,6 +6,7 @@ import {
   defaultLocale,
   supportedLocales,
   type Locale,
+  getTranslation,
 } from "@/lib/translations";
 
 interface TranslationContextType {
@@ -37,7 +38,6 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
   };
 
   const t = (key: string, params?: Record<string, string | number>): string => {
-    const { getTranslation } = require("@/lib/translations");
     return getTranslation(key, locale, params);
   };
 

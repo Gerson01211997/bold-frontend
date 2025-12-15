@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, memo } from "react";
-import { className } from "./styles";
-import InfoIcon from "../icons/InfoIcon";
+import { className } from "@/components/Popover/styles";
+import InfoIcon from "@/components/icons/InfoIcon";
 
 function PopoverInfo({ info }: { info: string }) {
   const [open, setOpen] = useState(false);

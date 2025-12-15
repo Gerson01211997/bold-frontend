@@ -1,4 +1,4 @@
-import { formatDateTime } from "./formatDateTime";
+import { formatDateTime } from "@/lib/formatDateTime";
 
 export function generateDateVariants(dateString: string): string[] {
   const date = new Date(dateString);
