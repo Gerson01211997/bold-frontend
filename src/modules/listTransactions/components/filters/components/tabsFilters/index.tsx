@@ -1,29 +1,25 @@
 import { useState } from "react";
 import { className } from "./style";
-
-const tabs = [
-  { id: "hoy", label: "Hoy" },
-  { id: "estaSemana", label: "Esta semana" },
-  { id: "junio", label: "Junio" },
-];
+import { TABS_NAME } from "./constanst";
+import { useTranslations } from "@/hooks/useTranslations";
 
 export default function DateTabs() {
-  const [activeTab, setActiveTab] = useState(tabs[0].id);
-
+  const [activeTab, setActiveTab] = useState(TABS_NAME[0].value);
+  const t = useTranslations();
   return (
     <div className={className.container}>
       <div className={className.tabsWrapper}>
-        {tabs.map(({ id, label }) => {
-          const isActive = activeTab === id;
+        {TABS_NAME.map(({ value, name }) => {
+          const isActive = activeTab === value;
 
           return (
             <button
-              key={id}
+              key={value}
               type="button"
-              onClick={() => setActiveTab(id)}
+              onClick={() => setActiveTab(value)}
               className={`${className.tab} ${isActive ? className.tabActive : className.tabInactive}`}
             >
-              {label}
+              {t(name)}
             </button>
           );
         })}

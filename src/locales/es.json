@@ -7,21 +7,39 @@
   "common": {
     "welcome": "Bienvenido",
     "loading": "Cargando...",
-    "today": "hoy",
-    "thisWeek": "esta semana",
-    "month": "Junio"
+    "today": "Hoy",
+    "week": "Ésta semana",
+    "month": "Éste mes"
   },
   "listTransactions": {
     "listRow": {
       "header": {
         "title": "Tus ventas de {date}",
         "cols": {
-          "transaction": "TRANSACCIÓN",
-          "date": "FECHA Y HORA",
-          "payMethod": "MÉTODO DE PAGO",
-          "idTransaction": "ID TRANSACCIÓN BOLD",
-          "amount": "MONTO"
+          "transaction": "Transacción",
+          "date": "Fecha y hora",
+          "payMethod": "Método de pago",
+          "idTransaction": "ID transacción bold",
+          "amount": "Monto"
+        },
+        "rows": {
+          "transactionStatus": {
+            "SUCCESSFUL": "Cobro exitoso",
+            "REJECTED": "Cobro no realizado"
+          },
+          "deduction": "Deducción bold",
+          "typeMethod": "Tipo de pago",
+          "typePay": {
+            "PAYMENT_LINK": "Link de pagos",
+            "TERMINAL": "Datáfono"
+          }
         }
+      },
+      "filters":{
+        "viewAll": "Ver todos",
+        "terminal": "Cobro con datáfono",
+        "link": "Cobro con link de pago",
+        "apply": "Aplicar"
       }
     }
   }

@@ -5,16 +5,20 @@ import CheckIcon from "@/components/icons/CheckIcon";
 import CloseIcon from "@/components/icons/CloseIcon";
 import { memo } from "react";
 import { className } from "./style";
-
-type Transaction = {
-  id: string;
-  status: string;
-  date: string;
-  time: string;
-  paymentMethod: string;
-  amount: string;
-  deduction: string | null;
-};
+import type { Transaction } from "@/services/transactions/transactions.types";
+import { formatDateTime } from "@/lib/formatDateTime";
+import {
+  PaymentMethod,
+  TransactionStatus,
+} from "@/services/transactions/transactions.enum";
+import {
+  getIconByPayMethod,
+  getIconBySalesType,
+  transactionStatusLang,
+} from "../table/rows/utils";
+import { useTranslations } from "@/hooks/useTranslations";
+import { formatCOP } from "@/lib/formatCurrency";
+import { generateTypePay } from "./utils";
 
 type SidePanelProps = {
   isOpen: boolean;
@@ -23,30 +27,16 @@ type SidePanelProps = {
 };
 
 function SidePanel({ isOpen, onClose, transaction }: SidePanelProps) {
-  const isSuccessful = transaction?.status === "Cobro exitoso";
-  const fechaHora = transaction
-    ? `${transaction.date} - ${transaction.time}`
-    : "";
-  const monto = transaction ? `$${transaction.amount}` : "";
+  const isSuccessful = transaction?.status === TransactionStatus.SUCCESSFUL;
+  const t = useTranslations();
+  const fechaHora = transaction ? formatDateTime(transaction.createdAt) : "";
+  const monto = transaction ? `${formatCOP(transaction.amount)}` : "";
   const deduccion = transaction?.deduction
-    ? `-$${transaction.deduction}`
+    ? `-${formatCOP(transaction?.deduction)}`
     : null;
 
   const handleOverlayClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (e.target === e.currentTarget) {
-      onClose();
-    }
-  };
-
-  const handleOverlayKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
-    if (e.key === "Escape" || e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      onClose();
-    }
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Escape") {
       onClose();
     }
   };
@@ -56,13 +46,11 @@ function SidePanel({ isOpen, onClose, transaction }: SidePanelProps) {
       <button
         type="button"
         onClick={handleOverlayClick}
-        onKeyDown={handleOverlayKeyDown}
         className={className.overlay(isOpen, !!transaction)}
         aria-label="Cerrar panel"
       />
 
       <div
-        onKeyDown={handleKeyDown}
         className={className.panel(isOpen, !!transaction)}
         role="dialog"
         aria-modal={isOpen && transaction ? "true" : "false"}
@@ -90,7 +78,7 @@ function SidePanel({ isOpen, onClose, transaction }: SidePanelProps) {
                 )}
               </div>
               <h2 id="panel-title" className={className.title}>
-                {isSuccessful ? "¡Cobro exitoso!" : "Cobro no realizado"}
+                {t(transactionStatusLang({ transaction: transaction?.status }))}
               </h2>
               <p className={className.amount}>{monto}</p>
               <p className={className.date}>{fechaHora}</p>
@@ -99,36 +87,43 @@ function SidePanel({ isOpen, onClose, transaction }: SidePanelProps) {
             <div className={className.details}>
               <div className={className.detailRow}>
                 <span className={className.detailLabel}>
-                  ID transacción Bold
+                  {t("listTransactions.listRow.header.cols.idTransaction")}
                 </span>
-                <span className={className.detailValue}>{transaction.id}</span>
+                <span className={className.textBlack}>{transaction.id}</span>
               </div>
 
               {deduccion && (
                 <div className={className.detailRow}>
-                  <span className={className.detailLabel}>Deducción Bold</span>
+                  <span className={className.detailLabel}>
+                    {t("listTransactions.listRow.header.rows.deduction")}
+                  </span>
                   <span className={className.deductionValue}>{deduccion}</span>
                 </div>
               )}
 
               <div className={className.divider}></div>
               <div className={className.detailRow}>
-                <span className={className.detailLabel}>Método de pago</span>
+                <span className={className.detailLabel}>
+                  {t("listTransactions.listRow.header.cols.payMethod")}
+                </span>
                 <div className={className.paymentMethodRow}>
+                  {getIconByPayMethod({ payMethod: transaction.paymentMethod })}
                   <span className={className.detailValue}>
-                    {transaction.paymentMethod}
+                    {transaction.paymentMethod === PaymentMethod.PSE
+                      ? transaction.paymentMethod
+                      : `**** ${transaction.transactionReference}`}
                   </span>
                 </div>
               </div>
 
               <div className={className.detailRow}>
-                <span className={className.detailLabel}>Tipo de pago</span>
+                <span className={className.detailLabel}>
+                  {t("listTransactions.listRow.header.rows.typeMethod")}
+                </span>
                 <div className={className.paymentMethodRow}>
-                  <ChainsIcon className="h-4 w-4 text-bold-gray" />
-                  <span className={className.detailValue}>
-                    {transaction.paymentMethod.includes("****")
-                      ? "Tarjeta"
-                      : "PSE"}
+                  {getIconBySalesType({ salesType: transaction.salesType })}
+                  <span className={className.textBlack}>
+                    {t(generateTypePay({ salesType: transaction.salesType }))}
                   </span>
                 </div>
               </div>

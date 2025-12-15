@@ -1,17 +1,33 @@
 {
   "navbar": {
-    "myBusiness": "My Business",
+    "myBusiness": "My business",
     "help": "Help",
     "openMenu": "Open menu"
   },
   "common": {
     "welcome": "Welcome",
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "today": "today",
+    "thisWeek": "this week",
+    "month": "June"
   },
   "listTransactions": {
     "listRow": {
       "header": {
-        "title": "Your sales from {date}"
+        "title": "Your sales on {date}",
+        "cols": {
+          "transaction": "TRANSACTION",
+          "date": "DATE AND TIME",
+          "payMethod": "PAYMENT METHOD",
+          "idTransaction": "BOLD TRANSACTION ID",
+          "amount": "AMOUNT"
+        },
+        "rows": {
+          "transactionStatus": {
+            "SUCCESSFUL": "Successful charge",
+            "REJECTED": "Charge not completed"
+          }
+        }
       }
     }
   }

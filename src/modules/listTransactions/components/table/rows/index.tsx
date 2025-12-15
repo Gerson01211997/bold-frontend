@@ -1,20 +1,20 @@
 "use client";
 
-import TerminalIcon from "@/components/icons/TerminalIcon";
-import type { Transaction } from "@/services/transactions/transactions.types";
 import { className } from "./style";
 import { formatDateTime } from "@/lib/formatDateTime";
 import { formatCOP } from "@/lib/formatCurrency";
+import type { RowProps } from "./types";
+import {
+  getIconByPayMethod,
+  getIconBySalesType,
+  transactionStatusLang,
+} from "./utils";
+import { useTranslations } from "@/hooks/useTranslations";
+import { PaymentMethod } from "@/services/transactions/transactions.enum";
 
-type Props = {
-  transaction: Transaction;
-  index: number;
-  onSelect: (tx: Transaction) => void;
-};
-
-function TableRow({ transaction, index, onSelect }: Props) {
+function TableRow({ transaction, index, onSelect }: RowProps) {
   const isSuccessful = transaction.status === "SUCCESSFUL";
-
+  const t = useTranslations();
   return (
     <tr
       onClick={() => onSelect(transaction)}
@@ -29,7 +29,10 @@ function TableRow({ transaction, index, onSelect }: Props) {
         className={`${className.tdTransaction} ${transaction.deduction && className.trWithTop}`}
       >
         <div className={className.tdTransactionContent}>
-          <TerminalIcon className="h-4 w-4" /> <span>{transaction.status}</span>
+          {getIconBySalesType({ salesType: transaction.salesType })}{" "}
+          <span>
+            {t(transactionStatusLang({ transaction: transaction.status }))}
+          </span>
         </div>
       </td>
       <td className={className.tdDate}>
@@ -41,8 +44,12 @@ function TableRow({ transaction, index, onSelect }: Props) {
       </td>
       <td className={className.tdPaymentMethod}>
         <div className={className.tdPaymentMethodContent}>
-          <TerminalIcon className="h-4 w-4" />
-          <span>{transaction.paymentMethod}</span>
+          {getIconByPayMethod({ payMethod: transaction.paymentMethod })}
+          <span>
+            {transaction.paymentMethod === PaymentMethod.PSE
+              ? transaction.paymentMethod
+              : `**** ${transaction.transactionReference}`}
+          </span>
         </div>
       </td>
       <td className={className.tdId}>{transaction.id}</td>
@@ -57,7 +64,7 @@ function TableRow({ transaction, index, onSelect }: Props) {
           </span>
           {transaction.deduction && (
             <span className={className.deduction}>
-              Deducción Bold
+              {t("listTransactions.listRow.header.rows.deduction")}
               <span className={className.deductionAmount}>
                 -{formatCOP(transaction.deduction)}
               </span>

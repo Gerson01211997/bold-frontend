@@ -22,7 +22,6 @@ export default function FilterButton() {
   };
 
   const handleApply = () => {
-    console.log({ filters });
     setIsOpen(false);
   };
 

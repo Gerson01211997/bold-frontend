@@ -6,10 +6,11 @@ import SidePanel from "../sidePanel";
 import { className } from "./style";
 import TableHeader from "./tableHeader";
 import TableRow from "./rows";
+import type { Transaction } from "@/services/transactions/transactions.types";
 
 export default function TransactionTable() {
   const { data, loading } = useTransactions();
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState<Transaction | null>(null);
 
   if (loading) return <p>Cargando...</p>;
 

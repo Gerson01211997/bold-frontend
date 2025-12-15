@@ -22,9 +22,10 @@ export const className = {
   date: "text-sm text-bold-gray",
   details: "space-y-6",
   detailRow: "flex justify-between items-center text-sm",
-  detailLabel: "text-bold-gray",
-  detailValue: "font-medium text-gray-900",
+  detailLabel: "text-bold-gray font-semibold",
+  detailValue: "text-sm text-bold-gray",
   deductionValue: "font-medium text-bold-red",
   divider: "border-t border-gray-400",
   paymentMethodRow: "flex items-center space-x-2",
+  textBlack: "text-black font-semibold",
 } as const;
