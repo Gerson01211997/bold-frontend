@@ -2,12 +2,12 @@
 
 import { memo } from "react";
 import Skeleton from "@/components/Skeleton";
-import InfoIcon from "@/components/icons/InfoIcon";
 import { useTranslations } from "@/hooks/useTranslations";
 import { className } from "@/modules/listTransactions/components/summary/style";
 import { useTransactionsContext } from "@/modules/listTransactions/context/TransactionsContext";
 import { formatCOP } from "@/lib/formatCurrency";
 import { formatTransactionDate } from "@/lib/formatDateTime";
+import Popover from "@/components/Popover";
 
 function ShowTotal() {
   const t = useTranslations();
@@ -23,14 +23,11 @@ function ShowTotal() {
         {t("listTransactions.listRow.header.title", {
           date: dateLabel,
         })}
-        <div className="relative group">
-          <InfoIcon className={className.infoIcon} />
-          <div className={className.tooltip}>
-            {t("listTransactions.summary.tooltip", {
-              amount: formatCOP(total),
-            })}
-          </div>
-        </div>
+        <Popover
+          info={t("listTransactions.summary.tooltip", {
+            amount: formatCOP(total),
+          })}
+        />
       </div>
       {loading ? (
         <span className={className.amount}>
