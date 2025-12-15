@@ -4,7 +4,7 @@ import {
   getTranslations,
   defaultLocale,
   supportedLocales,
-  Locale,
+  type Locale,
 } from "@/lib/translations";
 
 describe("getTranslation", () => {
