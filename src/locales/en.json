@@ -12,26 +12,33 @@
     "month": "December"
   },
   "listTransactions": {
+    "summary": {
+      "tooltip": "Total sales in the selected period: {amount}"
+    },
     "listRow": {
+      "emptyState": {
+        "title": "No transactions found"
+      },
       "header": {
-        "title": "Your sales for {date}",
+        "title": "Your sales on {date}",
+        "search": "Search",
         "cols": {
           "transaction": "Transaction",
-          "date": "Date and Time",
+          "date": "Date & Time",
           "payMethod": "Payment Method",
           "idTransaction": "Transaction ID bold",
           "amount": "Amount"
         },
         "rows": {
           "transactionStatus": {
-            "SUCCESSFUL": "Successful Charge",
-            "REJECTED": "Failed Charge"
+            "SUCCESSFUL": "Successful charge",
+            "REJECTED": "Charge not completed"
           },
           "deduction": "Deduction bold",
           "typeMethod": "Payment Type",
           "typePay": {
             "PAYMENT_LINK": "Payment Link",
-            "TERMINAL": "Card Terminal"
+            "TERMINAL": "Terminal"
           }
         }
       },
@@ -39,8 +46,8 @@
         "title": "Filter",
         "button": "Filter",
         "viewAll": "View All",
-        "terminal": "Charge with Card Terminal",
-        "link": "Charge with Payment Link",
+        "terminal": "Charge via Terminal",
+        "link": "Charge via Payment Link",
         "apply": "Apply"
       }
     }

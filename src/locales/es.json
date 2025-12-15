@@ -12,6 +12,9 @@
     "month": "Diciembre "
   },
   "listTransactions": {
+    "summary": {
+      "tooltip": "Total de ventas en el período seleccionado: {amount}"
+    },
     "listRow": {
       "emptyState": {
         "title": "No se encontraron transacciones"

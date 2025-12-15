@@ -23,7 +23,14 @@ function ShowTotal() {
         {t("listTransactions.listRow.header.title", {
           date: dateLabel,
         })}
-        <InfoIcon className={className.infoIcon} />
+        <div className="relative group">
+          <InfoIcon className={className.infoIcon} />
+          <div className={className.tooltip}>
+            {t("listTransactions.summary.tooltip", {
+              amount: formatCOP(total),
+            })}
+          </div>
+        </div>
       </div>
       {loading ? (
         <span className={className.amount}>
