@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import ListTransactions from "@/modules/listTransactions";
 import { TranslationProvider } from "@/contexts/TranslationContext";
 

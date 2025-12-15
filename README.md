@@ -4,6 +4,10 @@ Este proyecto es una aplicación de frontend construida con `Next.js`, `React` y
 
 El objetivo es mantener un código **limpio**, **tipado** y **fácil de escalar**, con un flujo de validación automático en desarrollo (pre-commit) y en build.
 
+## Enlace de aplicación en Vercel
+
+`https://bold-frontend-blue.vercel.app/`
+
 ## Variables de entorno
 
 ### NEXT_PUBLIC_API_BASE_URL

@@ -1,6 +1,5 @@
 "use client";
 
-import ChainsIcon from "@/components/icons/ChainsIcon";
 import CheckIcon from "@/components/icons/CheckIcon";
 import CloseIcon from "@/components/icons/CloseIcon";
 import { memo } from "react";

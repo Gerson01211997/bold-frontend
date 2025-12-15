@@ -5,7 +5,7 @@ import { TransactionStatus } from "@/services/transactions/transactions.enum";
 describe("getTransactionStatusTranslation", () => {
   it("should return translation for valid status", () => {
     const result = getTransactionStatusTranslation(
-      TransactionStatus.PENDING,
+      TransactionStatus.REJECTED,
       "es",
     );
     expect(result).toBeTruthy();
@@ -14,11 +14,11 @@ describe("getTransactionStatusTranslation", () => {
 
   it("should return different translations for different locales", () => {
     const esResult = getTransactionStatusTranslation(
-      TransactionStatus.PENDING,
+      TransactionStatus.REJECTED,
       "es",
     );
     const enResult = getTransactionStatusTranslation(
-      TransactionStatus.PENDING,
+      TransactionStatus.REJECTED,
       "en",
     );
     expect(esResult).toBeTruthy();

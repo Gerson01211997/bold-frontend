@@ -37,6 +37,7 @@ describe("getTranslations", () => {
   });
 
   it("should return default locale translations when locale not found", () => {
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     const result = getTranslations("invalid" as any);
     expect(result).toBeTruthy();
   });
