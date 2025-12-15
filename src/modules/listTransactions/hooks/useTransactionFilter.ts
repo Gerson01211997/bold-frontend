@@ -1,8 +1,11 @@
 import { useMemo } from "react";
-import { formatDateTime } from "@/lib/formatDateTime";
+import { normalizeNumberString } from "@/lib/normalizeNumberString";
+import { generateDateVariants } from "@/lib/generateDateVariants";
+import { getTransactionStatusTranslation } from "@/lib/getTransactionStatusTranslation";
 import { formatCOP } from "@/lib/formatCurrency";
 import type { useTransactionsFiltersParams } from "@/modules/listTransactions/hooks/types";
 import { ENUM_TABS_VALUE } from "@/modules/listTransactions/components/filters/components/tabsFilters/enum";
+import type { Locale } from "@/lib/translations";
 
 export function useTransactionsFilters({
   data,
@@ -55,18 +58,42 @@ export function useTransactionsFilters({
     const query = search.toLowerCase().trim();
 
     return filteredWithoutSearch.filter((tx) => {
-      const searchable = [
+      let locale: Locale = "es";
+      try {
+        const stored = localStorage.getItem("locale");
+        if (stored === "es" || stored === "en") locale = stored;
+      } catch {}
+
+      const statusOrig = tx.status;
+      const statusTrans = getTransactionStatusTranslation(statusOrig, locale);
+
+      const rawAmount = (tx.amount ?? 0).toString();
+      const formattedAmount = formatCOP(tx.amount ?? 0);
+      const amountNormalize = normalizeNumberString(rawAmount);
+      const formattedAmountNoSymbols = normalizeNumberString(formattedAmount);
+
+      const dateVariants = generateDateVariants(tx.createdAt).map((d) =>
+        d.toLowerCase(),
+      );
+
+      const searchableItems = [
         tx.id,
         tx.transactionReference,
-        formatCOP(tx.amount ?? 0),
-        formatDateTime(tx.createdAt),
+        rawAmount,
+        formattedAmount,
+        amountNormalize,
+        formattedAmountNoSymbols,
+        ...dateVariants,
         tx.paymentMethod,
+        statusOrig,
+        statusTrans,
         tx.salesType,
-      ]
-        .join(" ")
-        .toLowerCase();
+      ].map((i) => (i || "").toString().toLowerCase());
 
-      return searchable.includes(query);
+      const normalizedQuery = normalizeNumberString(query);
+      return searchableItems.some(
+        (item) => item.includes(query) || item.includes(normalizedQuery),
+      );
     });
   }, [filteredWithoutSearch, search]);
 
