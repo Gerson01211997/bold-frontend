@@ -370,3 +370,4 @@ render(<Component />, { wrapper: Wrapper });
   - **Tests automatizados** para comportamiento.
   - **Biome** para estilo y calidad de código.
 
+## Nota: La documentación contó con apoyo de IA y fue validada manualmente.
