@@ -105,6 +105,9 @@ O configura la variable en tu plataforma de despliegue (Vercel, Netlify, etc.).
 
 ### Estructura de carpetas
 
+**Nota**
+La estructura se podría mejorar para una mejor visualización/semántica, separando un poco las responsabilidades
+
 El proyecto sigue una organización modular y escalable:
 
 ```
